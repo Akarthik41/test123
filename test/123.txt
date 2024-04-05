@@ -1,0 +1,60 @@
+To improve the given code, I made the following changes:
+
+1. Added a form element and wrapped the input fields inside it for better structure and accessibility.
+2. Added an `onclick` attribute to the submit button to call the `myFunction()` function when clicked.
+3. Modified the `myFunction()` to retrieve the form values using `querySelector()` instead of calling `fn1()` directly.
+4. Updated the `fn1()` to handle potential errors when accessing form elements.
+
+Here's the corrected code:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Submission</title>
+</head>
+<body>
+    <form>
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname"><br><br>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob"><br><br>
+        <label for="mail">Email:</label>
+        <input type="email" id="mail" name="mail"><br><br>
+        <label for="college">College:</label>
+        <input type="text" id="college" name="college"><br><br>
+        <label for="jobrole">Job Role:</label>
+        <input type="text" id="jobrole" name="jobrole"><br><br>
+        <button onclick="myFunction()">Submit</button>
+    </form>
+
+    <p id="fnamep"></p>
+
+    <script>
+        function myFunction() {
+            const fname1 = document.querySelector('#fname').value;
+            document.getElementById("fnamep").innerHTML = fname1;
+        }
+
+        function fn1() {
+            let fname1 = document.getElementById("fname")?.value;
+            let lname1 = document.getElementById("lname")?.value;
+            let dob1 = document.getElementById("dob")?.value;
+            let mail1 = document.getElementById("mail")?.value;
+            let college1 = document.getElementById("college")?.value;
+            let jobrole1 = document.getElementById("jobrole")?.value;
+
+            if (fname1 !== undefined && lname1 !== undefined && dob1 !== undefined && mail1 !== undefined && college1 !== undefined && jobrole1 !== undefined) {
+                alert("The form was submitted");
+                const formData = `Name: ${fname1} \n Father's Name: ${lname1} \n D.O.B: ${dob1} \n Email: ${mail1} \n College: ${college1} \n Job Role: ${jobrole1}`;
+                console.log(formData);
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+This corrected code provides a better structure, improves readability, and handles potential errors when accessing form elements.
